@@ -9,11 +9,27 @@
 </head>
 <body>
     <div id="bg"></div>
-    </div>
     <div id="landing_container">
+        <div id="header" class="hidden">
+            <h1 id="header_title">
+                The Elder Scroll Cookbook
+            </h1>
+            <div id="header_deco"></div>
+        </div>
+
         <div id="title_container">
             <div id="title_deco"></div>
             <h1 id="title">The <br> Elder Scroll <br> Cookbook</h1>
+        </div>
+
+        <div id="login_form" class="hidden">
+            <img src="img/bk_btn.svg" alt="Cancel Login" id="login_bk_btn">
+            <form id="user_info">
+                <label for="username">Username: </label>
+                <input type="text" name="username" id="username">
+                <label for="password">Password: </label>
+                <input type="text" name="password" id="password">
+            </form>
         </div>
 
         <div id="login">
@@ -21,5 +37,6 @@
         </div>
         
     </div>
+    <script src="/js/index.js"></script>
 </body>
 </html>

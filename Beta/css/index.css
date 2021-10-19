@@ -25,10 +25,16 @@ body{
     background-color: #121212;
 }
 
-h1, h2{
+h1, h2, label{
     font-family: trajan, trajan-pro-3, Garamond;
     font-weight: 700;
     font-style: normal;
+}
+
+.hidden{
+    opacity: 0%;
+    visibility: hidden;
+    transition: .25s;
 }
 
 #bg{
@@ -46,17 +52,49 @@ h1, h2{
 }
 
 #landing_container{
-    color: white;
-    display: flex;
     height: 100vh;
     width: 100vw;
-    justify-content: space-around;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 50vw 50vw;
+    grid-template-rows: 15vh 85vh;
+    grid-template-areas: 
+        "hd hd"
+        "titleNForm login";
+    color: white;
+    /* overflow: hidden; */
+    justify-items: center;
+    place-items: center;
 }
+
+#header{
+    display: flex;
+    flex-flow: column;
+    padding: 1em;
+    height: 15vh;
+    transition: .25s;
+    grid-area: hd;
+}
+
+#header_title{
+    text-align: center;
+    font-size: 1.5rem;
+    color: white;
+}
+
+#header_deco{
+    background-image: url(../img/header_deco.svg);
+    width: 100%;
+    height: 14px;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: contain;
+}
+
+
 
 #title_container{
     display: flex;
-
+    grid-area: titleNForm;
 }
 
 #title_deco{
@@ -71,11 +109,61 @@ h1, h2{
     font-size: 3rem;
 }
 
+#login_form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    grid-area: titleNForm;
+}
+
+#login_bk_btn{
+    height: 2.5rem;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    opacity: 50%;
+    transition: .2s;
+}
+
+#login_bk_btn:hover{
+    opacity: 100%;
+}
+
+#login_bk_btn:active{
+    opacity: 80%;
+    transition: .2s;
+}
+
+#user_info{
+    display: grid;
+    grid-template-columns: .5fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: right;
+    place-items: center;
+    height: 25vh;
+}
+
+#user_info label{
+    font-size: 1.25rem;
+    margin-right: 2rem;
+
+}
+
+#user_info input{
+    height: 2.5rem;
+    width: 15.25rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgb(255, 255, 255, 0.5);
+    padding: .2rem;
+    color: white;
+    font-size: 1.2rem;
+}
+
 #login{
     background-color: #88773A;
     padding: .75em 3em;
     transition: .2s;
     cursor: pointer;
+    grid-area: login;
 }
 
 #login:hover{
@@ -83,10 +171,11 @@ h1, h2{
 }
 
 #login:active > h2{
-    color: rgb(148, 148, 148);
+    color: rgb(54, 54, 54);
 }
 
 #login h2{
-    font-size: 1.5em;
+    font-size: 1.5rem;
     transition: .1s;
 }
+
