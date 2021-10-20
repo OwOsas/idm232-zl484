@@ -1,0 +1,9 @@
+.card{
+    height: 200px;
+    width: 140px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-flow: column;
+    padding: 5% 2%;
+}

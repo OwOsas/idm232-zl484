@@ -1,0 +1,8 @@
+#card_container{
+    display: grid;
+    margin: 0 10vw;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    place-items: center;
+}
+
