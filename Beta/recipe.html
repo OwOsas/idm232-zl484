@@ -27,18 +27,128 @@
         </div>
     </div>
 
-    <div id="card_container">
-        <div class="card" style="background-image: url(/img/recipe_image/ESOR_KwamaEggQuich_img.jpg);">
-            <h2>Egg Quiche</h2>
+    <div id="content_container">
+        <div id="card_container">
+            <div class="card" style="background-image: url(/img/recipe_image/ESOR_KwamaEggQuich_img.jpg);" id="card_01">
+                <h2>Kwama Egg Quiche</h2>
+            </div>
+            <div class="card" style="background-image: url(/img/recipe_image/ESOR_KwamaEggQuich_img.jpg);" id="card_02">
+                <h2>Kwama Egg Quiche</h2>
+            </div>
+            <div class="card" style="background-image: url(/img/recipe_image/ESOR_KwamaEggQuich_img.jpg);" id="card_03">
+                <h2>Kwama Egg Quiche</h2>
+            </div>
+    
+            
         </div>
-        <div class="card" style="background-image: url(/img/recipe_image/ESOR_KwamaEggQuich_img.jpg);">
-            <h2>Egg Quiche</h2>
+
+        <div id="detail_recipe" class="hidden">
+            <img src="/img/bk_btn.svg" alt="" id="exit_detail_recipe">
+            <h1 id="detail_title"> Kwama Egg Quiche</h1>
+            <div id="preparation">
+                <p><b>Prep: </b>15 minutes</p>
+                <p><b>Cooking: </b>1 hour</p>
+                <p><b>Makes: </b>1 quiche, about 8 servings</p>
+                <p><b>Pairs well with: </b>a fried breakfast, strong tea or coffee</p>
+            </div>
+    
+            <div id="story">
+                <b>Originally only known in Vvardenfell, this recipe traveled with. Dunmer fleeing Morrowind after the Red Mountain's eruption and has been well received throughout much of Tamriel, albeit with various regional tweaks to the ingredient list. The lightly seasoned filling and crisp crust can satisfy even the pickiest palate.</b>
+            </div>
+
+            <div id="ingredients">
+                1 recipe Rye Pie Dough
+                <br>(page 39)
+                <br>I tablespoon salted butter
+                <br>I or 2 cloves garlic, minced
+                <br>2 medium tomatoes, divided
+                <br>1 medium kwama egg or
+                <br>4 chicken eggs
+                <br>½ cup whole milk
+                <br>1 cup shredded cheddar
+                <br>cheese
+                <br>½ cup grated Parmesan
+                <br>cheese
+                <br>½ teaspoon salt
+                
+            </div>
+    
+            <div id="instruction">
+                1. Preheat the oven to 350°F. Roll out the Rye Pie Dough to about ½inch thick, and gently drape over a tart or pie pan. Press carefully into the bottom and sides of the pan, and trim off any excess. Prick the bottom of the pastry several times with a fork to prevent it from bubbling up.
+                <br><br>
+                2. Melt the butter in a medium saute pan or skillet over medium heat.Add the garlic and cook for several minutes, until slightly browned.Chop one of the tomatoes, add to the pan, and cook for another few minutes, until the tomatoes are soft, but not yet falling apart.Remove from heat and set aside.3. In a large bowl, whisk together the eggs, milk, cheddar cheese,Parmesan cheese, and salt. Pour this mixture into the pastry shell,slice the remaining tomato, then evenly layer the tomatoes on top of the filling. Bake for about an hour, or until the egg top is golden and puffy around the tomatoes. Allow to cool for 10 minutes before slicing and serving.
+            </div>
+
+            <img src="/img/recipe_image/ESOR_KwamaEggQuich_img.jpg" alt="Kwama Egg Quiche" id="detail_recipe_img">
         </div>
-        <div class="card" style="background-image: url(/img/recipe_image/ESOR_KwamaEggQuich_img.jpg);">
-            <h2>Egg Quiche</h2>
+
+        <div id="sort">
+            <div id="sort_head">
+                <img src="/img/filter.svg" alt="Filter">
+                <img src="/img/bk_btn.svg" alt="Retract" style="transform: rotate(180deg);">
+            </div>
+            <div id="sort_difficulty">
+                <h2>DIFFICULTY</h2>
+                <div id="difficulty_slider">
+                    <img src="/img/slider_arrow.svg" alt="Reduce Difficulty" id="reduce_difficulty">
+                    <ul id="difficulty_slider_element_container">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <img src="/img/slider_arrow.svg" alt="Reduce Difficulty" id="increase_difficulty" style="transform: rotate(180deg);">
+                </div>
+
+                <div id="sort_region">
+                    <h2>The Tastes of Tamriel</h2>
+                    <select id="sort_region_dropdown" class="dropdown">
+                        <option value="None">None</option>
+                        <option value="Nord">Nord</option>
+                        <option value="Redguard">Redguard</option>
+                        <option value="Bosmer">Bosmer</option>
+                        <option value="Khajiit">Khajiit</option>
+                        <option value="Imperial">Imperial</option>
+                        <option value="Orsimer">Orsimer</option>
+                        <option value="Altmer">Altmer</option>
+                        <option value="Breton">Breton</option>
+                        <option value="Dunmer">Dumer</option>
+                        <option value="Argonian">Argonian</option>
+                    </select>
+                </div>
+
+                <div id="sort_type">
+                    <h2>Types of Food</h2>
+                    <select id="sort_type_dropdown" class="dropdown">
+                        <option value="None">None</option>
+                        <option value="Basics">Basics</option>
+                        <option value="Sides">Sides, Starters, & Snacks</option>
+                        <option value="Baked">Baked Goods</option>
+                        <option value="SoupsNStews">Soups & Stews</option>
+                        <option value="Main_Courses">Main Courses</option>
+                        <option value="Desserts">Desserts</option>
+                        <option value="Drinks">Drinks</option>
+                    </select>
+                </div>
+
+                <div id="apply_sort">Apply</div>
+
+                <div id="clear_sort">Clear</div>
+            </div>
         </div>
     </div>
 
 
+
+
+
+    
+    <script src="/js/recipe.js"></script>
 </body>
 </html>
