@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/bg.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/card.css">
+    <link rel="stylesheet" href="css/filter.css">
 </head>
 <body>
     <div id="header">
@@ -82,73 +83,67 @@
             <img src="/img/recipe_image/ESOR_KwamaEggQuich_img.jpg" alt="Kwama Egg Quiche" id="detail_recipe_img">
         </div>
 
-        <div id="sort">
-            <div id="sort_head">
-                <img src="/img/filter.svg" alt="Filter">
-                <img src="/img/bk_btn.svg" alt="Retract" style="transform: rotate(180deg);">
-            </div>
-            <div id="sort_difficulty">
-                <h2>DIFFICULTY</h2>
-                <div id="difficulty_slider">
-                    <img src="/img/slider_arrow.svg" alt="Reduce Difficulty" id="reduce_difficulty">
-                    <ul id="difficulty_slider_element_container">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                    <img src="/img/slider_arrow.svg" alt="Reduce Difficulty" id="increase_difficulty" style="transform: rotate(180deg);">
-                </div>
-
-                <div id="sort_region">
-                    <h2>The Tastes of Tamriel</h2>
-                    <select id="sort_region_dropdown" class="dropdown">
-                        <option value="None">None</option>
-                        <option value="Nord">Nord</option>
-                        <option value="Redguard">Redguard</option>
-                        <option value="Bosmer">Bosmer</option>
-                        <option value="Khajiit">Khajiit</option>
-                        <option value="Imperial">Imperial</option>
-                        <option value="Orsimer">Orsimer</option>
-                        <option value="Altmer">Altmer</option>
-                        <option value="Breton">Breton</option>
-                        <option value="Dunmer">Dumer</option>
-                        <option value="Argonian">Argonian</option>
-                    </select>
-                </div>
-
-                <div id="sort_type">
-                    <h2>Types of Food</h2>
-                    <select id="sort_type_dropdown" class="dropdown">
-                        <option value="None">None</option>
-                        <option value="Basics">Basics</option>
-                        <option value="Sides">Sides, Starters, & Snacks</option>
-                        <option value="Baked">Baked Goods</option>
-                        <option value="SoupsNStews">Soups & Stews</option>
-                        <option value="Main_Courses">Main Courses</option>
-                        <option value="Desserts">Desserts</option>
-                        <option value="Drinks">Drinks</option>
-                    </select>
-                </div>
-
-                <div id="apply_sort">Apply</div>
-
-                <div id="clear_sort">Clear</div>
+        
+    </div>
+    <div id="sort">
+        <div id="sort_header">
+            <img src="/img/filter.svg" alt="Filter">
+            <img src="/img/bk_btn.svg" alt="Retract" style="transform: rotate(180deg);">
+        </div>
+        <div id="sort_difficulty">
+            <h2>DIFFICULTY</h2>
+            <div id="difficulty_slider">
+                <img src="/img/slider_arrow.svg" alt="Reduce Difficulty" id="reduce_difficulty">
+                <ul id="difficulty_slider_element_container">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <img src="/img/slider_arrow.svg" alt="Reduce Difficulty" id="increase_difficulty" style="transform: rotate(180deg);">
             </div>
         </div>
+
+        <div id="sort_region">
+            <h2>The Tastes of Tamriel</h2>
+            <select id="sort_region_dropdown" class="dropdown">
+                <option value="None">None</option>
+                <option value="Nord">Nord</option>
+                <option value="Redguard">Redguard</option>
+                <option value="Bosmer">Bosmer</option>
+                <option value="Khajiit">Khajiit</option>
+                <option value="Imperial">Imperial</option>
+                <option value="Orsimer">Orsimer</option>
+                <option value="Altmer">Altmer</option>
+                <option value="Breton">Breton</option>
+                <option value="Dunmer">Dumer</option>
+                <option value="Argonian">Argonian</option>
+            </select>
+        </div>
+        <div id="sort_type">
+            <h2>Types of Food</h2>
+            <select id="sort_type_dropdown" class="dropdown">
+                <option value="None">None</option>
+                <option value="Basics">Basics</option>
+                <option value="Sides">Sides, Starters, & Snacks</option>
+                <option value="Baked">Baked Goods</option>
+                <option value="SoupsNStews">Soups & Stews</option>
+                <option value="Main_Courses">Main Courses</option>
+                <option value="Desserts">Desserts</option>
+                <option value="Drinks">Drinks</option>
+            </select>
+        </div>
+        <div id="apply_sort">Apply</div>
+        <div id="clear_sort">Clear</div>
+
     </div>
 
-
-
-
-
-    
     <script src="/js/recipe.js"></script>
 </body>
 </html>

@@ -1,0 +1,64 @@
+#sort{
+    height: 80vh;
+    width: 20rem;
+    background-color: blueviolet;
+    position: absolute;
+    top: 20vh;
+    right: 0;
+    padding: .75rem;
+}
+
+select{
+    width: 100%;
+    height: 2rem;
+    border-radius: 0;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 1rem;
+    font-family: 'EB Garamond', serif;
+    color: white;
+}
+
+#sort_header{
+    display: flex;
+    justify-content: space-between;
+    padding: .75rem 0;
+    border-bottom: white 1px solid;
+}
+
+#sort_header img{
+    height: 1.5rem;
+}
+
+#sort h2{
+    font-size: 1.2rem;
+    
+}
+
+#difficulty_slider{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+#reduce_difficulty, #increase_difficulty{
+    /* background-color: chartreuse; */
+    height: 1.2rem;
+    align-self: center;
+}
+
+#difficulty_slider_element_container{
+    display: flex;
+    background-image: url("../img/difficulty_container.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: .2rem 1.7rem;
+}
+
+#difficulty_slider_element_container li{
+    width: .75rem;
+    height: 1.3rem;
+    background: #A78950;
+    margin: .1rem;
+}
