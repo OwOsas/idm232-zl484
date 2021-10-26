@@ -1,0 +1,30 @@
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+#content_container{
+    position: relative;
+    margin: 0 5vw;
+}
+
+#card_container{
+    display: grid;
+    grid-gap: 10vh 0;
+    justify-items: center;
+    position: relative;
+    grid-template-columns: 1fr 1fr 1fr;
+    transition: .3s;
+}
+
+@media screen and (max-width: 800px) {
+    #card_container{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    #card_container{
+        grid-template-columns: 1fr;
+    }
+}

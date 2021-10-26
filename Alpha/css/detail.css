@@ -1,24 +1,10 @@
-#content_container{
-    position: relative;
-    margin: 0 10vw;
-}
-
-#card_container{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
-    place-items: center;
-    position: relative;
-    transition: .3s;
-}
-
 #detail_recipe{
     position: absolute;
     top: 0;
     left: 0;
     min-height: 100vh;
     width: 100%;
-    background-color: #121212;
+    background-color: #12121200;
     color: white;
     display: grid;
     grid-template-columns: 4rem 2fr 1fr 2fr;
@@ -31,6 +17,7 @@
         "instruction instruction instruction photo";
     gap: 1rem 1rem;
     transition: .3s;
+    padding-bottom: 10vh;
 }
 
 #detail_recipe > *{
@@ -85,4 +72,50 @@ b, p, #detail_recipe > *{
     grid-area: photo;
     width: 100%;
     align-self: start;
+}
+
+@media screen and (max-width: 1200px){
+    #detail_recipe{
+        grid-template-columns: 4rem 1fr 1fr;
+        grid-template-rows: 4rem 5rem 10rem 13rem 13rem 1fr;
+        grid-template-areas: 
+            "exit empty empty"
+            "title title title"
+            "preparation preparation photo"
+            "story story photo"
+            "ingredient  ingredient photo"
+            "instruction instruction instruction";
+        gap: 1rem;
+    }
+
+    #ingredients{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 850px){
+    #detail_recipe{
+        grid-template-columns: 4rem 1fr;
+        grid-template-rows: 2rem 5rem 50vh 20vh 50vh 50vh 100vh;
+        grid-template-areas: 
+            "exit empty"
+            "title title"
+            "photo photo"
+            "preparation preparation"
+            "story story"
+            "ingredient  ingredient"
+            "instruction instruction";
+        gap: 1rem;
+    }
+
+    #detail_recipe img{
+        height: 100%;
+        object-fit: cover;
+        margin: 0;
+    }
+    #ingredients{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }

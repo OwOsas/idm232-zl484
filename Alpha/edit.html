@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit | The Elder Scroll Cookbook</title>
+    <link rel="stylesheet" href="css/recipe.css">
+    <link rel="stylesheet" href="css/gernal.css">
+    <link rel="stylesheet" href="css/bg.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/card.css">
+    <link rel="stylesheet" href="css/filter.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/detail.css">
+</head>
+<body>
+    <div id="bg"></div>
+    <div id="header">
+        <img src="/img/saved_recipe.svg" alt="Saved Recipes" id="saved_recipe">
+        <div id="header_title">
+            <a href="/recipe.html">The Elder Scroll Cookbook</a>
+            <div id="header_title_deco"></div>
+        </div>
+        <div id="rightbar">
+            <div id="search_bar">
+                <input type="text" name="search_input" id="search_input">
+                <img src="/img/search_icon.svg" alt="Search" id="magnifier">
+            </div>
+            <img src="/img/user_icon.svg" alt="user" id="user_icon">
+        </div>
+    </div>
+
+    <div id="content_container">
+        <div id="detail_recipe">
+            <div id="detail_title"> 
+                <form action="Tile">
+                    <label for="Title">Title: </label>
+                    <input type="text" name="title" id="title">
+                </form>
+            </div>
+            <form id="preparation">
+                <label for="prep_time">Preparation Time: </label>
+                <input type="text" name="prep_time" id="prep_time">
+                <br>
+                <label for="cook_time">Cook Time</label>
+                <input type="text" name="cook_time" id="cook_time">
+                <br>
+                <label for="servings">Servings: </label>
+                <input type="text" name="servings" id="servings">
+                <br>
+                <label for="paring_food">Pairs well with: </label>
+                <input type="text" name="paring_food" id="paring_food">
+            </form>
+    
+            <form id="story">
+                <label for="story">Origin Story:</label>
+                <br>
+                <input type="text" name="paring_food" id="paring_food">
+            </form>
+
+            <form id="ingredients">
+                <label for="ingredients">Ingredients:</label>
+                <input type="text" name="ingredient" id="paring_food">
+                <input type="text" name="ingredient" id="paring_food">
+                <input type="text" name="ingredient" id="paring_food">
+                <input type="text" name="ingredient" id="paring_food">
+                <input type="text" name="ingredient" id="paring_food">
+                <input type="text" name="ingredient" id="paring_food">
+                <input type="text" name="ingredient" id="paring_food">
+
+            </form>
+            
+    
+            <form id="instruction">
+                <label for="instruction">instructions:</label>
+                <input type="text" name="instruction" id="instruction">
+            </form>
+
+            <form id="detail_recipe_img">
+                <input type="file">
+            </form>
+        </div>  
+    </div>
+    <div id="footer">
+        
+    </div>
+
+</body>
+</html>

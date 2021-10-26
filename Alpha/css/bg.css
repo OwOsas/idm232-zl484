@@ -1,13 +1,14 @@
 #bg{
-    height: 100vh;
+    height: 120vh;
     width: 50vw;
     background-image: url(../img/bg_ess_icon.svg);
     background-repeat: no-repeat;
     background-size: 100vh;
     background-position-y: -20vh;
-    background-position-x: 5vw;
+    background-position-x: 0vw;
     position: absolute;
     right: 0;
+    top: 0;
     z-index: -1;
     opacity: 20%;
 }

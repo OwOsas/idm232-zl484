@@ -1,0 +1,16 @@
+.card{
+    height: 200px;
+    width: 150px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    /* margin: 5vh 5vw; */
+    transition: .3s;
+}
+
+@media screen and (max-width: 560px) {
+    .card{
+        width: 75vw;
+        height: 100vw;
+    }
+}
