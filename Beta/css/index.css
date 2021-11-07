@@ -1,0 +1,227 @@
+:root{
+    --btn_1: #88773A;
+    --btn_1_hover: #706028;
+    --btn_1_active: #534614;
+    --error_msg: rgb(204, 0, 0);
+}
+
+*{
+    transition: .3s;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+
+}
+
+.hidden{
+    opacity: 0%;
+    visibility: hidden;
+    transform: translateY(100%);
+    transition: .25s;
+}
+
+.welcome_container{
+    height: inherit;
+    width: 100vw;
+    padding: 5vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 10vh 15vh 40vh 1fr;
+    grid-template-areas: 
+        "empty"
+        "return"
+        "signIn"
+        "userEntry";
+    gap: 1em;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    margin: auto 0;
+}
+
+.btn{
+    margin-top: 5em;
+}
+
+.logIn_img{
+    height: 1.5em;
+    width: 1.5em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: .3em;
+    left: 0;
+    margin: auto 0 auto 1.5em;
+}
+
+.entry{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+input{
+    color: white;
+    width: 100%;
+    height: 3em;
+    font-family: trajan, trajan-pro-3, Garamond;
+    font-size: .8em;
+    padding: 0 .5em 0 3.5em;
+
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    margin: .8rem;
+}
+
+.sign_in_deco{
+    width: 18em;
+}
+
+.errorMsg{
+    height: 1em;
+    min-width: 1px;
+    font-size: 1em;
+    color: var(--error_msg);
+    text-align: center;
+}
+
+.entry_container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button{  
+    font-family: trajan, trajan-pro-3, Garamond;
+    font-weight: bold;
+    font-size: 1.25em;
+    width: 10em;
+    padding: .3em 0;
+    margin: .5rem;
+    border: none;
+    color: white;
+    background-color: var(--btn_1);
+    transition: .4s;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: var(--btn_1_hover);
+}
+
+button:active{
+    background-color: var(--btn_1_active);
+}
+
+#return{
+    grid-area: return;
+    justify-self: start;
+    margin: .5rem 1rem;
+    cursor: pointer;
+}
+
+#title_container{
+    grid-area: 3/1/4/1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.title_deco{
+    height: 9em;
+    margin: .5em;
+}
+
+#sign_in_container, #sign_up_container{
+    grid-area: signIn;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 70%;
+}
+
+#sign_in_form_container, #sign_up_form_container{
+    grid-area: userEntry;
+    width: 100%;
+}
+
+#sign_in_form_container form, #sign_up_form_container form{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+#sign_up_form_container form{
+    justify-self: start;
+}
+
+#signIn_n_register{
+    grid-area: userEntry;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#register{
+    font-size: 1em;
+    background-color: grey;
+}
+
+#register:hover{
+    background-color: rgb(87, 87, 87);
+}
+
+#fst_lst_name input{
+    margin: .5em;
+    padding: 0 1em;
+}
+
+@media screen and (min-width:720px){
+    .welcome_container{
+        grid-template-columns:  1fr 1fr;
+        grid-template-rows: 1fr 15vh 30vh 1fr;
+        grid-template-areas: 
+            "empty empty "
+            "signIn signIn "
+            "userEntry userEntry"
+            "empty2 empty2";
+    }
+
+    #signIn_n_register{
+        grid-area: 2/2/4/3;
+    }
+
+    #title_container{
+        grid-area: 2/1/4/2;
+    }
+
+    .btn{
+        margin-top: .5em;
+    }
+
+    #return{
+        grid-area: signIn;
+    }
+
+    #sign_in_form_container form, #sign_up_form_container form{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .entry{
+        width: 20em;
+    }
+
+}
