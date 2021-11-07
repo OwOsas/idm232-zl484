@@ -97,9 +97,9 @@
     
 
 
-    <?php
+    <!-- <?php
         include './injection/footer.php'
-    ?>
+    ?> -->
     <script src="./js/index.js"></script>
     
 </body>
