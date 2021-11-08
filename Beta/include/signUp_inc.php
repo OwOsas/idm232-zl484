@@ -1,11 +1,12 @@
 <?php
     if(isset($_POST["submit"])){
-        $name = $_POST["name"];
+        $fst_name = $_POST["fst_name"];
+        $lst_name = $_POST["lst_name"];
         $username = $_POST["username"];
         $email = $_POST["email"];
         $pwd = $_POST["pwd"];
         $re_pwd = $_POST["re_pwd"];
-        $userInfo = array($name, $username, $email, $pwd, $re_pwd);
+        $userInfo = array($fst_name, $lst_name, $username, $email, $pwd, $re_pwd);
 
         require_once 'dbh_inc.php';
         require_once 'functions_inc.php';
@@ -20,7 +21,7 @@
             exit();
         }
 
-        if (usernameExists($connDB, $username) == true){
+        if (usernameExists($conn, $username) == true){
             header("location: ../index.php?error=usernameExist");
             exit();
         }
@@ -35,12 +36,12 @@
             exit();
         }
 
-        if (pwdIsValid($pwd) == false){
-            header("location: ../index.php?error=invalidPassword");
-            exit();
-        }
+        // if (pwdIsValid($pwd) == false){
+        //     header("location: ../index.php?error=invalidPassword");
+        //     exit();
+        // }
 
-        createUser($connDB, $name, $username, $email, $pwd);
+        createUser($conn, $fst_name,$lst_name, $username, $email, $pwd);
     }
     else{
         header("location: ../index.php");

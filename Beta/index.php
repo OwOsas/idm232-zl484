@@ -66,8 +66,8 @@
             <form action="./include/signUp_inc.php" method="post">
             <div class="entry_container">
                 <div class="entry" id="fst_lst_name">
-                    <input type="text" name="first_name" placeholder="First Name..."> 
-                    <input type="text" name="last_name" placeholder="Last Name..."> 
+                    <input type="text" name="fst_name" placeholder="First Name..."> 
+                    <input type="text" name="lst_name" placeholder="Last Name..."> 
                 </div>
                 <div class="entry">
                     <img class="logIn_img" src="./img/user_icon_login.svg" alt="">
