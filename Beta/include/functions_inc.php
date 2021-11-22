@@ -94,12 +94,13 @@ function login($conn, $username){
                 session_start();
                 $_SESSION["uID"] = $row["uID"];
                 $_SESSION["u_username"] = $row["u_username"];
+                $_SESSION["u_email"] = $row["u_email"];
+                $_SESSION["u_firstName"] = $row["u_firstName"];
+                $_SESSION["u_lastName"] = $row["u_lastName"];
             }
         }
     }
 }
-
-
 
 function createUser($conn, $fst_name, $lst_name, $username, $email, $pwd){
     $admin = false;
@@ -107,7 +108,7 @@ function createUser($conn, $fst_name, $lst_name, $username, $email, $pwd){
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)){
         header("location: ../index.php?error=stmtFailed");
-        exit();
+        exit(); 
     }
 
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
@@ -117,5 +118,3 @@ function createUser($conn, $fst_name, $lst_name, $username, $email, $pwd){
     mysqli_stmt_close($stmt);
     header("location: ../index.php?error=none");
 }
-
-

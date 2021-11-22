@@ -1,7 +1,7 @@
 <?php
 if (isset($_GET["error"])){
     if($_GET["error"] == "emptyInput"){
-
+        
     }
     elseif($_GET["error"] == "invalidUsername"){
 

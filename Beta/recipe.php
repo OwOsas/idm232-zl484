@@ -2,6 +2,10 @@
     include_once "./injection/html_inj.php";
     $page_title = "Recipe";
     $errormsg = "";
+    session_start();
+    if (!isset($_SESSION['u_username'])) {
+        header("location: ./index.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +24,10 @@
 <body>
     <?php
     include_once './injection/navbar.php';
+    echo var_dump($_SESSION);
     ?>
+
+    
 
 
     <?php

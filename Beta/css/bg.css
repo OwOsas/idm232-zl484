@@ -8,7 +8,7 @@ body{
     background-position-x: 50vw;
     background-position-y: calc(100px / 10vh);
     z-index: -1;
-
+    overflow: hidden;
 }
 
 @media screen and (max-width: 800px){

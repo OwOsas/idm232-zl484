@@ -3,10 +3,12 @@
     /* background-color: aqua; */
     display: grid;
     grid-template-columns: 10vw 60vw 10vw;
+    grid-template-areas: "left mid right";
     column-gap: 5vw;
     padding: 5vw;
     align-items: center;
     justify-items: center;
+    background-color: #121212;
 }
 
 .logo{
@@ -16,6 +18,7 @@
 
 .logo img{
     width: 100%;
+    max-height: 1em;
 }
 
 .logo h1{
@@ -65,10 +68,209 @@
     transform: translate(0) rotate(90deg) !important;
 }
 
+.slide_in{
+    width: 100vw;
+    overflow: hidden;
+    height: 100vh;
+    position: absolute;
+}
 
 #filter{
     cursor: pointer;
     justify-self: right;
     max-width: 100%;  
     padding: .5em;
+    transition: .25s;
+}
+
+.filter_icon_hidden{
+    opacity: 0%;
+    visibility: hidden;
+}
+
+/* ------------filter slide in---------------- */
+.filter_visible{
+    transform: translateX(0)!important;
+}
+
+#filter_menu{
+    position: absolute;
+    right: 0;
+    padding: 2em;
+    max-height: 100vh;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(22, 22, 22);
+    transition: .3s;
+    transform: translateX(100%);
+
+}
+
+#filter_menu form{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+}
+
+#filter_menu label{
+    font-size: 1em;
+}
+
+#filter_menu select{
+    cursor: pointer;
+}
+
+#filter_menu input, #filter_menu select{
+    /* appearance: none; */
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px white solid;
+    font-size: 1em;
+    color: white;
+    padding: .1em .5em .2em .5em;
+    width: 100%;
+    align-self: center;
+    font-family: 'EB Garamond', serif;
+}
+
+#search button{
+    background-color: transparent;
+    border: none;
+    height: 2em;
+    width: 2em;
+    background-image: url("../../img/search_icon.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#search{
+    display: flex;
+    justify-content: space-around;
+    column-gap: 3vw;
+}
+
+#search input{
+    width: 100%;
+}
+
+.dropdown_container select option{
+    background-color: #121212;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+}
+
+#apply_filter{
+    font-size: 1.25em;
+    border-radius: 1.5em;
+    width: fit-content;
+    padding: .5em 3em;
+    align-self: center;
+    margin: 1em;
+    border: none;
+    cursor: pointer;
+    
+    background-color: #88773A;
+    color: white;
+    font-family: 'EB Garamond', serif;
+}
+
+/* --------------Burger Menu--------------- */
+.burger_visible{
+    transform: translateX(0)!important;
+}
+
+#burger_menu{
+    position: absolute;
+    left: 0;
+    padding: 2em;
+    height: 100vh;
+    width: 100vw;
+    max-height: 100vh;
+    max-width: 350px;
+    background-color: rgb(22, 22, 22);
+    transition: .3s;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+
+    transform: translateX(-100%);
+}
+
+#burger_menu img{
+    vertical-align: middle;
+    height: 2em;
+    width: 2em;
+    margin: 0 .3em;
+}
+
+#burger_menu span{
+    font-family: trajan, trajan-pro-3, Garamond;
+    font-weight: 700;
+    font-style: normal;
+    color: white;
+}
+
+#user_info_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border: 1px solid white;
+    border-radius: .5em;
+    padding: .8em;
+    margin: .8em 0;
+}
+
+#user_info_container h3, #user_info_container p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+}
+
+#user_info_container p{
+    font-size: .75em;
+    color: #808080;
+}
+
+#user_info_container a{
+    font-size: 1em;
+    font-family: 'EB Garamond', serif;
+    font-weight: normal;
+    background-color: #88773A;
+    padding: .3em .8em;
+    border-radius: 1.5em;
+    font-size: .9em;
+}
+
+#burger_menu #log_out{
+    width: 90%;
+    align-self: center;
+    border: none;
+    padding: .5em;
+    background-color: #5F2525;
+    border-radius: .5em;
+
+    font-family: 'EB Garamond', serif;
+    font-weight: normal;
+    font-style: normal;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+}
+
+@media screen and (min-width:720px){
+    .navbar{
+        padding: 2vw;
+        width: 100vw;
+    }
+
+    .logo{
+        grid-area: "mid";
+    }
+
+    #filter {
+        grid-area: "right";
+    }
 }

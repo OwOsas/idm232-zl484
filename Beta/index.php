@@ -1,7 +1,19 @@
 <?php
     include_once "./injection/html_inj.php";
+
+    session_start();
+    if (isset($_SESSION['u_username'])) {
+        header("location: ./recipe.php");
+    }
+
     $page_title = "Welcome";
-    $errormsg = "";
+    if(!empty($_GET["error"])){
+        $errormsg = $_GET["error"];
+    }
+    else{
+        $errormsg = "";
+    }
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,9 +58,16 @@
                         <img class="logIn_img" src="./img/pwd_icon.svg" alt="">
                         <input type="password" name="pwd" placeholder="Password...">
                     </div>
-                    <p class="errorMsg"><?php 
-                    echo $errormsg;
-                    ?></p>
+                    <p id="errorMsg" 
+                    <?php 
+                    if (!empty($_GET["error"])){
+                        echo "class = \"error_detect\"";
+                        } 
+                        ?>>
+                        <?php 
+                        echo $errormsg;
+                        ?>
+                    </p>
                 </div>
                 <button class="btn" type="submit" name="submit">Log In</button>
                 
@@ -85,9 +104,16 @@
                 <div class="entry">
                     <input type="password" name="re_pwd" placeholder="Repeat Password...">
                 </div>
-                <p class="errorMsg"><?php 
-                    echo $errormsg;
-                ?></p>
+                <p id="errorMsg" 
+                    <?php 
+                    if (!empty($_GET["error"])){
+                        echo "class = \"error_detect\"";
+                        } 
+                        ?>>
+                        <?php 
+                        echo $errormsg;
+                        ?>
+                    </p>
             </div>
                 
             <button class="btn" type="submit" name="submit">Sign Up</button>

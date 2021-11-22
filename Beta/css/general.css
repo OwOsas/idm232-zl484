@@ -28,6 +28,9 @@
 body{
     background-color: #121212;
     color: white;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
 }
 
 h1, h2, label, a, select{
