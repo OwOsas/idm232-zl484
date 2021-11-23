@@ -18,14 +18,24 @@
     ?>
     <link rel="stylesheet" href="./css/general.css">
     <link rel="stylesheet" href="./css/bg.css">
+    <link rel="stylesheet" href="./css/recipe.css">
     <link rel="stylesheet" href="./injection/css/navbar.css">
     
 </head>
 <body>
     <?php
     include_once './injection/navbar.php';
-    echo var_dump($_SESSION);
+    include_once './include/dbh_inc.php'
+    
+    // echo var_dump($_SESSION);
     ?>
+
+    <div id="card_container">
+        <?php
+        include_once './injection/card.php';
+        card_gen("Generate Title");
+        ?>
+    </div>
 
     
 

@@ -12,7 +12,7 @@
     <img src="./img/filter.svg" id="filter" alt="">
 </div>
 
-<div class="slide_in">
+<div id="slide_in">
     <div id="burger_menu">
         <a href="">
             <img src="./img/saved_recipe.svg" alt="">

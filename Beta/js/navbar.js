@@ -5,20 +5,24 @@ document.getElementById("hamburger").addEventListener("click", function(){
     var filter = document.getElementById("filter_menu");
     var burger_menu = document.getElementById("burger_menu");
     var filter_icon = document.getElementById("filter");
+    var slide_in = document.getElementById("slide_in");
 
     if(filter.classList.contains("filter_visible")){
         filter.classList.remove("filter_visible");
         filter_icon.classList.remove("filter_icon_hidden");
+        slide_in.classList.remove("slide_in_active");
         burger_cross();
     }
     else if(burger_menu.classList.contains("burger_visible")){
         burger_menu.classList.remove("burger_visible");
         filter_icon.classList.remove("filter_icon_hidden");
+        slide_in.classList.remove("slide_in_active");
         burger_cross();
     }
     else{
         burger_menu.classList.add("burger_visible");
         filter_icon.classList.add("filter_icon_hidden");
+        slide_in.classList.add("slide_in_active");
         burger_cross();
     }
 })
@@ -27,9 +31,12 @@ document.getElementById("filter").addEventListener("click", function(){
     console.log("filter");
     var filter = document.getElementById("filter_menu");
     var filter_icon = document.getElementById("filter");
+    var slide_in = document.getElementById("slide_in");
+    
     if(!(filter.classList.contains("filter_visible"))){
         filter.classList.add("filter_visible");
         filter_icon.classList.add("filter_icon_hidden");
+        slide_in.classList.add("slide_in_active");
         burger_cross();
     }
 })
