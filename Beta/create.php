@@ -1,12 +1,12 @@
 <?php
     include_once "./injection/html_inj.php";
-    $page_title = "Recipe";
-    $errormsg = "";
     session_start();
     if (!isset($_SESSION['u_username'])) {
         header("location: ./index.php");
     }
+    $page_title = "Create";
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,10 +16,9 @@
     <?php
     page_title($page_title);
     ?>
+    <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/general.css">
     <link rel="stylesheet" href="./css/bg.css">
-    <link rel="stylesheet" href="./css/recipe.css">
-    
 </head>
 <body>
     <?php
@@ -29,21 +28,11 @@
     // echo var_dump($_SESSION);
     ?>
 
-    <div id="card_container">
-        <?php
-        include_once './injection/card.php';
-        // card_gen("Generate Title");
-        ?>
-    </div>
+    <form action="./include/upload.php" method="POST" enctype="multipart/form-data">
 
-    
+    <input type="file" name="file">
+    <button type="submit" name="submit">Upload</button>
 
-
-    <?php
-        include './injection/footer.php';
-    ?>
-    <script src="./js/recipe.js"></script>
-    <script src="./js/navbar.js"></script>
-    
+    </form>
 </body>
 </html>
