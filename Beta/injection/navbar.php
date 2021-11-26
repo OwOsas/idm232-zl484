@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="./injection/css/navbar.css">
-<div class="navbar">
+<div id="navbar">
     <div id="hamburger">     
         <div id="burger_ele" class=""></div>
     </div>
@@ -92,3 +92,5 @@
     </div>
 </div>
 
+<div class="nav_pad"></div>
+<script src="./js/navbar.js"></script>

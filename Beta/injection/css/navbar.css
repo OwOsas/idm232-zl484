@@ -1,14 +1,16 @@
-.navbar{
-    width: 100vw;
+#navbar{
+    width: calc(100vw - 4vw);
     /* background-color: aqua; */
     display: grid;
-    grid-template-columns: 10vw 60vw 10vw;
+    grid-template-columns: 10vw 1fr 10vw;
     grid-template-areas: "left mid right";
     column-gap: 5vw;
     padding: 5vw;
     align-items: center;
     justify-items: center;
     background-color: #121212;
+    -webkit-box-shadow: 0px 2px 7px 0px #0000007a; 
+    box-shadow: 0px 2px 7px 0px #00000073;
 
     /* position: -webkit-sticky;
     position: -moz-sticky;
@@ -26,6 +28,10 @@
     max-height: 1em;
 }
 
+.logo a{
+    width: 100%;
+}
+
 .logo h1{
     font-size: 1em;
     text-align: center;
@@ -38,6 +44,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    justify-self: left;
     cursor: pointer;
 }
 
@@ -152,14 +159,17 @@
     border: none;
     height: 2em;
     width: 2em;
+    
     background-image: url("../../img/search_icon.svg");
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
+    background-position: center;
 }
 
 #search{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
     column-gap: 3vw;
 }
 
@@ -273,10 +283,15 @@
     text-align: center;
 }
 
+.nav_pad{
+    height: 3em;
+    width: 100%;
+}
+
 @media screen and (min-width:720px){
-    .navbar{
+    #navbar{
         padding: 2vw;
-        width: 100vw;
+        width: calc(100vw);
     }
 
     .logo{
@@ -288,7 +303,7 @@
     }
 
     #burger_menu{
-        max-width: 300px;
+        max-width: 350px;
     }
 
     #filter_menu{

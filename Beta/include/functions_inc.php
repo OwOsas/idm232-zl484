@@ -118,3 +118,41 @@ function createUser($conn, $fst_name, $lst_name, $username, $email, $pwd){
     mysqli_stmt_close($stmt);
     header("location: ../index.php?error=none");
 }
+
+function recipeNameExists($conn, $recipeName){
+    $sql = "SELECT * FROM users;";
+    $result = mysqli_query($conn,$sql);
+    $resultCheck = mysqli_num_rows($result);
+
+    if($resultCheck>0){
+        while ($row = mysqli_fetch_assoc($result)) {
+            if ($row["u_username"] == $recipeName){
+                return true;
+            }
+        }
+    }
+    else{
+        return false;
+    }
+    return false;
+}
+
+function createRecipe($conn, $title, $fileName, $region, $type, $prepTime, $cookTime, $ingredients, $origin, $steps){
+    $sql = "INSERT INTO recipe (r_title, r_imgName, r_region, r_type, r_prepTime, r_cookTime, r_origin, r_ingredients,r_steps) VALUES (no?,?,?,?,?,?,?,?,?)";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)){
+        // header("location: ../create.php?error=stmtFailed");
+        echo "<br>stmtFailed";
+        exit(); 
+    }
+
+    mysqli_stmt_bind_param($stmt, "ssssiisss", $title, $fileName, $region, $type, $prepTime, $cookTime, $origin, $ingredients, $steps);
+    mysqli_stmt_execute($stmt);
+    echo "executed";
+    $result = mysqli_stmt_get_result($stmt);
+    while($row = mysqli_fetch_assoc($result)){
+        echo var_dump($row);
+    }
+    mysqli_stmt_close($stmt);
+    // header("location: ../create.php?uploadSuccess");
+}

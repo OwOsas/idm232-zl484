@@ -43,7 +43,7 @@
         include './injection/footer.php';
     ?>
     <script src="./js/recipe.js"></script>
-    <script src="./js/navbar.js"></script>
+    
     
 </body>
 </html>
