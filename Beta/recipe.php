@@ -32,12 +32,13 @@
     <div id="card_container">
         <?php
         include_once './injection/card.php';
-        // card_gen("Generate Title");
+
+        if($_SESSION["u_isAdmin"]){
+            include_once './injection/create_button.php';
+        }
         ?>
+        
     </div>
-
-    
-
 
     <?php
         include './injection/footer.php';

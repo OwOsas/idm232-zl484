@@ -1,5 +1,5 @@
 #navbar{
-    width: calc(100vw - 4vw);
+    width: 100vw;
     /* background-color: aqua; */
     display: grid;
     grid-template-columns: 10vw 1fr 10vw;
@@ -106,6 +106,7 @@
     width: 100vw;
     height: 0;
     transition: .1s;
+    z-index: 1;
 }
 
 .slide_in_active{
@@ -284,7 +285,7 @@
 }
 
 .nav_pad{
-    height: 3em;
+    height: .5em;
     width: 100%;
 }
 
@@ -292,14 +293,21 @@
     #navbar{
         padding: 2vw;
         width: calc(100vw);
+        grid-template-columns: 10vw 1fr 5vw 5vw;
+        grid-template-areas: "left mid midRight right";
+        column-gap: 1vw;
     }
 
     .logo{
-        grid-area: "mid";
+        grid-area: mid;
     }
 
     #filter {
-        grid-area: "right";
+        grid-area: midRight;
+    }
+
+    #hamburger{
+        grid-area: right;
     }
 
     #burger_menu{
@@ -308,5 +316,20 @@
 
     #filter_menu{
         max-width: 350px;
+    }
+
+    .nav_pad{
+        height: 3em;
+        width: 100%;
+    }
+
+    #burger_menu{
+        transform: translateX(100%);
+        left: auto;
+        right: 0;
+    }
+
+    .burger_visible{
+        transform: translateX(0)!important;
     }
 }

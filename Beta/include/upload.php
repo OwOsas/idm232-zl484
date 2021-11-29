@@ -16,8 +16,9 @@ if(isset($_POST['submit'])){
     $fileError = $file['error'];
     $fileType = $file['type'];
 
+    $difficulty = $_POST["difficulty"];
     $region = $_POST['sort_region_dropdown'];
-    $type = $_POST['dropdown_container'];
+    $type = $_POST['sort_type_dropdown'];
     //echo $region . $type;
 
     $prepHr = $_POST['prepTimeHr'];
@@ -26,7 +27,7 @@ if(isset($_POST['submit'])){
     $cookMin = $_POST['cookTimeMin'];
     //echo $prepHr . $prepMin . $cookHr . $cookMin;
 
-    $ingredient = htmlspecialchars($_POST['ingredients'],ENT_QUOTES);
+    $ingredients = htmlspecialchars($_POST['ingredients'],ENT_QUOTES);
     $origin = htmlspecialchars($_POST['origin'],ENT_QUOTES);
     $steps = htmlspecialchars($_POST['steps'],ENT_QUOTES);
     
@@ -60,7 +61,6 @@ if(isset($_POST['submit'])){
         $cookHr = $cookHr * 60;
         $cookTime = $cookHr + $cookMin;
         
-        createRecipe($conn, $title, $fileName, $region, $type, $prepTime, $cookTime, $ingredients, $origin, $steps);
+        createRecipe($conn, $title, $fileNewName, $difficulty, $region, $type, $prepTime, $cookTime, $ingredients, $origin, $steps);
     }
-
 }

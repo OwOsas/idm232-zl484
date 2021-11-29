@@ -6,30 +6,44 @@ $result = mysqli_query($conn,$sql);
 $resultCheck = mysqli_num_rows($result);
 if($resultCheck>0){
     while ($row = mysqli_fetch_assoc($result)) {
-        // card_gen($row["r_title"], $row["r"]);
+        $time = $row["r_prepTime"] + $row["r_cookTime"];
+        card_gen($row["r_ID"], $row["r_title"], $row['r_imgName'], $row["r_type"], $row['r_origin'], $time, $row['r_difficulty']);
     }
 }
 
-function card_gen($title, $special, $time, $difficulty){
+function card_gen($ID, $title, $imgName, $type, $originOg, $time, $difficulty){
     // echo "<a href=\"\" class=\"card\" style=\"background-image: url(./img/recipe_img/ESOR_KwamaEggQuich_img.jpg);\">";
     // echo "<h1>" . $title . "</h1>";
     // echo "</a>";
+    $hr = (int)($time / 60);
+    $mins = $time % 60;
 
-    echo "<link rel=\"stylesheet\" href=\"./injection/css/card.css\">";
-    echo "<a href=\"\" class=\"card\">";
-    echo "<div class=\"thumbnail_img\" style=\"background-image: url(./img/recipe_img/ESOR_KwamaEggQuich_img.jpg);\"></div>";
+    $originExplode = explode(" ", $originOg);
+
+    $origin = "";
+    for($i = 0; $i < 10; $i++){
+        $origin = $origin . " " . $originExplode[$i];
+    }
+    $origin = $origin . "...";
+
+    echo "<a href=\"./detail_recipe.php?id=". $ID ."\" class=\"card\">";
+    echo "<div class=\"thumbnail_img\" style=\"background-image: url(./img/recipe_img/" . $imgName . ");\"></div>";
     echo "<div class=\"description_container\">";
-    echo "<div class=\"tag\">Nord</div>";
+    echo "<div class=\"tag\">" . $type . "</div>";
     echo "<div class=\"content_box\">";
-    echo "<h1>" . $title . "</h1>"; //Title Go Here
-    echo "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,  delectus...</p>";
+    echo "<div class=\"title\"><h1>" . $title . "</h1></div>"; //Title Go Here
+    echo "<p>" . $origin . "</p>";
     echo "<div class=\"desc_bot\">";
     echo "<div class=\"time\">";
     echo "<img src=\"./img/timer_icon.svg\" alt=\"Cooking Time\">";
-    echo "<p>1hr</p>";
+    echo "<p>";
+    if (!($hr == 0)){
+        echo $hr . "hr ";
+    }
+    echo $mins . "mins</p>";
     echo "</div>";
     echo "<div class=\"difficulty\">";
-    echo "<p><b>Difficulty:</b> 3</p>";
+    echo "<p><b>Difficulty:</b>" . $difficulty . "</p>";
     echo "</div>";
     echo "</div>";  
     echo "</div>";

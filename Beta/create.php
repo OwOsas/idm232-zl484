@@ -78,17 +78,23 @@
             </select>
         </div>
 
+        <!-- Difficulty -->
+        <label for="difficulty">Difficulty:</label>
+        <br>
+        <input type="number" id="difficulty" name="difficulty">
+        <br>
+
         <!-- Prep Time -->
         <label for="prepTime">Preparation time:</label>
         <br>
-        <input type="number" id="prepTimeHr" name="prepTimeHr"d>
-        <input type="number" id="prepTimeMin" name="prepTimeMin"d>
+        <input type="number" id="prepTimeHr" name="prepTimeHr">
+        <input type="number" id="prepTimeMin" name="prepTimeMin">
         <br>
         <!-- Cook Time -->
         <label for="cookTime">Cooking time:</label>
         <br>
-        <input type="number" id="cookTimeHr" name="cookTimeHr" d>
-        <input type="number" id="cookTimeMin" name="cookTimeMin" d>
+        <input type="number" id="cookTimeHr" name="cookTimeHr" >
+        <input type="number" id="cookTimeMin" name="cookTimeMin" >
         <br>
 
         <!-- Ingredients -->

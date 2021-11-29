@@ -97,6 +97,7 @@ function login($conn, $username){
                 $_SESSION["u_email"] = $row["u_email"];
                 $_SESSION["u_firstName"] = $row["u_firstName"];
                 $_SESSION["u_lastName"] = $row["u_lastName"];
+                $_SESSION["u_isAdmin"] = $row['u_isAdmin'];
             }
         }
     }
@@ -137,8 +138,8 @@ function recipeNameExists($conn, $recipeName){
     return false;
 }
 
-function createRecipe($conn, $title, $fileName, $region, $type, $prepTime, $cookTime, $ingredients, $origin, $steps){
-    $sql = "INSERT INTO recipe (r_title, r_imgName, r_region, r_type, r_prepTime, r_cookTime, r_origin, r_ingredients,r_steps) VALUES (no?,?,?,?,?,?,?,?,?)";
+function createRecipe($conn, $title, $fileName, $difficulty, $region, $type, $prepTime, $cookTime, $ingredients, $origin, $steps){
+    $sql = "INSERT INTO recipe (r_title, r_imgName, r_difficulty, r_region, r_type, r_prepTime, r_cookTime, r_origin, r_ingredients,r_steps) VALUES (?,?,?,?,?,?,?,?,?,?)";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)){
         // header("location: ../create.php?error=stmtFailed");
@@ -146,13 +147,8 @@ function createRecipe($conn, $title, $fileName, $region, $type, $prepTime, $cook
         exit(); 
     }
 
-    mysqli_stmt_bind_param($stmt, "ssssiisss", $title, $fileName, $region, $type, $prepTime, $cookTime, $origin, $ingredients, $steps);
+    mysqli_stmt_bind_param($stmt, "ssissiisss", $title, $fileName, $difficulty, $region, $type, $prepTime, $cookTime, $origin, $ingredients, $steps);
     mysqli_stmt_execute($stmt);
     echo "executed";
-    $result = mysqli_stmt_get_result($stmt);
-    while($row = mysqli_fetch_assoc($result)){
-        echo var_dump($row);
-    }
     mysqli_stmt_close($stmt);
-    // header("location: ../create.php?uploadSuccess");
 }
