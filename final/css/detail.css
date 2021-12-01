@@ -1,0 +1,129 @@
+
+
+#showcase{
+    display: flex;
+    height: 30em;
+    padding: 0 7vw;
+    max-width: 1200px;
+    margin: auto;
+}
+
+#thumbnail{
+    width: 65%;
+    height: 100%;
+    background-size: cover;
+    background-position: bottom;
+}
+
+.description_container{
+    background-color: #FAF6EE;
+    padding: 1.25em 1em;
+    position: relative;
+    width: 35%;
+}
+
+.content_box{
+    border: 1px #88773A solid;
+    padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.title{
+    height: 2.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content_box h1{
+    text-align: center;
+    font-size: 1.75em;
+    font-weight: bold;
+    line-height: 1.25em;
+    color: black;
+}
+
+.content_box p{
+    font-family: 'EB Garamond', serif;
+    font-weight: normal;
+    line-height: 1em;
+    margin: .5em 0;
+    color: rgb(114, 114, 114);
+    line-height: 1.25em;
+}
+
+.desc_bot{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+.time{
+    display: flex;
+    align-items: center;
+}
+
+.time p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: .85em;
+    margin: 0;
+    color: #727272;
+}
+
+.time img{
+    padding-right: .5em;
+}
+
+.difficulty{
+    display: flex;
+    align-items: center;
+}
+.difficulty p, .difficulty b{
+    font-family: trajan, trajan-pro-3, Garamond;
+    font-size: 1em;
+    margin-right: .5em;
+    
+    color: #88773A;
+}
+
+.tag{
+    position: absolute;
+    font-family: 'EB Garamond', serif;
+    font-size: 1em;
+    color: #B8992A;
+    top: 0;
+    left: 50%;
+    margin-top: 1.25em;
+    transform: translate(-50%, -50%);
+    padding: 0 1.5em;
+    background-color: #FAF6EE;
+}
+
+#create{
+    border: 1px white solid;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#create .thumbnail_img{
+    background-size: 25%;
+    background-position: center;
+   
+}
+
+#create .description_container{
+    background-color: transparent;
+}
+
+#create .description_container h1{
+    text-align: center;
+    background-color: transparent;
+    color: white;
+    font-size: 1.75em;
+    margin: .5em 0 1em 0;
+}

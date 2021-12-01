@@ -1,0 +1,20 @@
+
+body{
+    --vh: 1/10vh;
+    background-image: url(../img/bg_ess_icon.svg);
+    background-repeat: no-repeat;
+    background-size: 60vw;
+    background-attachment: fixed;
+    background-position-x: 50vw;
+    background-position-y: calc(100px / 10vh);
+    z-index: -1;
+    /* overflow: hidden; */
+}
+
+@media screen and (max-width: 800px){
+    body{
+        background-size: 120vw;
+        background-position-x: 10vw;
+        background-position-y: 0;
+    }
+}
