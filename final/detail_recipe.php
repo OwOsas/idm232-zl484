@@ -8,12 +8,16 @@
         header("location: ./index.php");
     }
     
-    $sql = "SELECT * FROM recipes WHERE r_ID=" . $_GET["id"] . ";";
+    $sql = "SELECT * FROM recipes WHERE r_ID='" . $_GET["id"] . "';";
     $result = mysqli_query($conn,$sql);
-    $resultCheck = mysqli_num_rows($result);
-    
-
-    if($resultCheck>0 && $resultCheck == 1){
+    // echo $sql;
+    // echo "<br>";
+    // var_dump($result);
+    // echo "<br>";
+    // echo $result->num_rows;
+    // echo "<br>";
+    if($result && !($result->num_rows == 0)){
+        $row = mysqli_fetch_assoc($result);
         $title = $row['r_title'];
         $imgName = $row['r_imgName'];
         $difficulty = $row['r_difficulty'];
@@ -30,6 +34,9 @@
         $hr = (int)($time / 60);
         $mins = $time % 60;
         $page_title = $title;
+    }
+    else{
+        header("location: ./recipe.php?error=recipeDoesNotExist");
     }
 
 ?>
@@ -92,32 +99,64 @@
             </div>
         </div>
 
-        <h2>Ingredients: </h2>
-        <u>
-        <?php
-        $ingredient_list = explode("||", $ingredients);
-        for ($i=0; $i < count($ingredient_list); $i++){
-            echo "<li>";
-            echo $ingredient_list[$i];
+        <ul id="time">
+            <?php 
+            $ingredient_list = explode("||", $ingredients);
+            $ingredient_count = count($ingredient_list);
+            echo "<li><div class='numbers'><div><h2>";
+            if (!((int)($prepTime / 60) == 0)){
+                echo (int)($prepTime / 60) . "</h2><p> hr </p></div><div><h2>";
+            }
+            echo (int)($prepTime % 60) . "</h2><p> mins</p></div></div>";
+            echo "<p>Preparation Time</p>";
             echo "</li>";
-        }
-        ?>
-        </u>
 
-        <p><b>Preparation Time: </b><?php 
-        if (!((int)($prepTime / 60) == 0)){
-            echo (int)($prepTime / 60) . "hr ";
-        }
-        echo (int)($prepTime % 60) . "mins</p>";
-        ?></p> 
-        <p><b>Cooking Time: </b><?php
-        if (!((int)($cookTime / 60) == 0)){
-            echo (int)($cookTime / 60) . "hr ";
-        }
-        echo (int)($cookTime % 60) . "mins</p>";
-        ?></p> 
+            echo "<div class='separator'></div>";
 
-        <ul>
+            echo "<li><div class='numbers'><div><h2>";
+            if (!((int)($cookTime / 60) == 0)){
+                echo (int)($cookTime / 60) . "</h2><p> hr";
+                if((int)($cookTime / 60) > 1){
+                    echo "s";
+                }
+                echo " </p></div><div><h2>";
+            }
+            echo (int)($cookTime % 60) . "</h2><p> mins</p></div></div>";
+            echo "<p>Cook Time</p>";
+            echo "</li>";
+            
+            echo "<div class='separator'></div>";
+
+            echo "<li><div class='numbers'><h2>";
+            echo $ingredient_count;
+            echo "</h2></div><p>Ingredients</p>";
+            echo "</li>";
+            
+            ?></p> 
+        </ul>
+        <h2>Ingredients: </h2>
+        <div id="ingredients">
+
+            <ul>
+            <?php
+                for ($i=0; $i < count($ingredient_list); $i++){
+                    if($ingredient_list[$i]){
+                        echo "<li>";
+                        echo "<input type='checkbox' class='checkbox'>";
+                        echo "<span>";
+                        echo $ingredient_list[$i];
+                        echo "</span></li>";
+                    }
+                    
+                }
+            ?>
+            </ul>
+        </div>
+        
+
+        
+        <h2>Instructions:</h2>
+        <ul id="instruction">
             <?php
                 $step_list = explode("||", $steps);
                 for ($i=0; $i < count($step_list); $i++){
@@ -131,10 +170,8 @@
 
     </div>
 
-
-    
-
-
-
+    <?php 
+    include_once "./injection/footer.php";
+    ?>
 </body>
 </html>

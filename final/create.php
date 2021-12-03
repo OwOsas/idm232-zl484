@@ -88,13 +88,17 @@
         <label for="prepTime">Preparation time:</label>
         <br>
         <input type="number" id="prepTimeHr" name="prepTimeHr">
+        <span>Hour(s)</span>
         <input type="number" id="prepTimeMin" name="prepTimeMin">
+        <span>Minute(s)</span>
         <br>
         <!-- Cook Time -->
         <label for="cookTime">Cooking time:</label>
         <br>
         <input type="number" id="cookTimeHr" name="cookTimeHr" >
+        <span>Hour(s)</span>
         <input type="number" id="cookTimeMin" name="cookTimeMin" >
+        <span>Minute(s)</span>
         <br>
 
         <!-- Ingredients -->

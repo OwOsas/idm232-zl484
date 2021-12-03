@@ -51,6 +51,7 @@
 }
 
 #create textarea{
+    font-size: 1em;
     max-width: calc(100% - 1em);
     width: calc(100% - 1em);
     margin: .5em .5em 1.5em .5em;
@@ -64,6 +65,7 @@
     font-size: 1.5em;
     background-color: #88773A;
     cursor: pointer;
+    font-family: trajan, trajan-pro-3, Garamond;
 }
 
 .page{
@@ -71,3 +73,7 @@
     width: 100%;
     max-width: 800px;
 }
+
+#create input[type=number] {
+    width: 4em;
+  }

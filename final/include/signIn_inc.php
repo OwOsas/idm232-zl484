@@ -26,11 +26,8 @@
             header("location: ../index.php?error=wrongPwd");
             exit();
         }
-
-
     }
     else{
         header("location: ../index.php");
         exit();
     }
-

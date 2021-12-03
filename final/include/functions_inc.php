@@ -21,21 +21,14 @@ function usernameIsValid($username){
 }
 
 function usernameExists($conn, $username){
-    $sql = "SELECT * FROM users;";
-    $result = mysqli_query($conn,$sql);
-    $resultCheck = mysqli_num_rows($result);
-
-    if($resultCheck>0){
-        while ($row = mysqli_fetch_assoc($result)) {
-            if ($row["u_username"] == $username){
-                return true;
-            }
-        }
-    }
-    else{
+    $sql = "SELECT * FROM users WHERE u_username ='" . $username . "';";
+    $results = mysqli_query($conn,$sql);
+    if($results == 0){
         return false;
     }
-    return false;
+    else{
+        return true;
+    }
 }
 
 function emailIsValid($email){
@@ -57,23 +50,21 @@ function pwdIsMatch($pwd, $re_pwd){
 }
 
 function pwdIsCorrect($conn, $username, $pwd){
-    $sql = "SELECT * FROM users;";
-    $result = mysqli_query($conn,$sql);
-    $resultCheck = mysqli_num_rows($result);
-    if($resultCheck>0){
-        while ($row = mysqli_fetch_assoc($result)) {
-            if ($row["u_username"] == $username){
-                if($username == "owosas"){
-                    if($pwd ==$row["u_pwd"]){
-                        return true;
-                    }
+    $sql = "SELECT * FROM users WHERE u_username ='" . $username . "';";
+    $results = mysqli_query($conn,$sql);
+    
+    if($results->num_rows == 1){
+        $row = mysqli_fetch_assoc($results);
+        if ($row["u_username"] == $username){
+            if($username == "owosas"){
+                if($pwd ==$row["u_pwd"]){
+                    return true;
                 }
-                else{
-                    if(password_verify($pwd, $row["u_pwd"])){
-                        return true;
-                    }
+            }
+            else{
+                if(password_verify($pwd, $row["u_pwd"])){
+                    return true;
                 }
-                
             }
         }
     }
@@ -81,11 +72,10 @@ function pwdIsCorrect($conn, $username, $pwd){
         return false;
     }
     return false;
-
 }
 
 function login($conn, $username){
-    $sql = "SELECT * FROM users WHERE u_username = 'owosas';";
+    $sql = "SELECT * FROM users WHERE u_username ='" . $username . "';";
     $results = mysqli_query($conn,$sql);
     
     if($results->num_rows == 1){
@@ -121,7 +111,7 @@ function createUser($conn, $fst_name, $lst_name, $username, $email, $pwd){
 }
 
 function recipeNameExists($conn, $recipeName){
-    $sql = "SELECT * FROM recipe WHERE  r_title =" . $recipeName . ";";
+    $sql = "SELECT * FROM recipes WHERE  r_title ='" . $recipeName . "';";
     $results = mysqli_query($conn,$sql);
 
     if($results == 0){
@@ -133,7 +123,7 @@ function recipeNameExists($conn, $recipeName){
 }
 
 function createRecipe($conn, $title, $fileName, $difficulty, $region, $type, $prepTime, $cookTime, $ingredients, $origin, $steps){
-    $sql = "INSERT INTO recipe (r_title, r_imgName, r_difficulty, r_region, r_type, r_prepTime, r_cookTime, r_origin, r_ingredients,r_steps) VALUES (?,?,?,?,?,?,?,?,?,?)";
+    $sql = "INSERT INTO recipes (r_title, r_imgName, r_difficulty, r_region, r_type, r_prepTime, r_cookTime, r_origin, r_ingredients,r_steps) VALUES (?,?,?,?,?,?,?,?,?,?)";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)){
         // header("location: ../create.php?error=stmtFailed");
@@ -142,6 +132,38 @@ function createRecipe($conn, $title, $fileName, $difficulty, $region, $type, $pr
     }
 
     mysqli_stmt_bind_param($stmt, "ssissiisss", $title, $fileName, $difficulty, $region, $type, $prepTime, $cookTime, $origin, $ingredients, $steps);
+    mysqli_stmt_execute($stmt);
+    echo "executed";
+    mysqli_stmt_close($stmt);
+    header("location: ../recipe.php?error=none");
+}
+
+function updateRecipe($conn, $ID, $title, $fileName, $difficulty, $region, $type, $prepTime, $cookTime, $ingredients, $origin, $steps){
+    $sql = "UPDATE recipes SET r_title=?, ";
+    if($fileName != "none"){
+        $sql .= "r_imgName=?, ";
+    }
+    $sql .= "r_difficulty=?, r_region=?, r_type=?, r_prepTime=?, r_cookTime=?, r_origin=?, r_ingredients=?, r_steps=?";
+
+    $sql .= " WHERE r_ID = " . $ID . ";";
+
+    echo "hello";
+    echo $sql;
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)){
+        // header("location: ../create.php?error=stmtFailed");
+        echo "<br>stmtFailed";
+        exit();
+    }
+    if($fileName != "none"){
+        mysqli_stmt_bind_param($stmt, "ssissiisss", $title, $fileName, $difficulty, $region, $type, $prepTime, $cookTime, $origin, $ingredients, $steps);
+    }
+    else{
+        mysqli_stmt_bind_param($stmt, "sissiisss", $title, $difficulty, $region, $type, $prepTime, $cookTime, $origin, $ingredients, $steps);
+    }
+    
+    echo "<br>";
+    echo $sql;
     mysqli_stmt_execute($stmt);
     echo "executed";
     mysqli_stmt_close($stmt);

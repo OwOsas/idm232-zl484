@@ -8,8 +8,10 @@
         <a href="./index.php"><h1>The Elder Scroll Cookbook</h1></a>
         <img src="./img/header_deco.svg" class="header_deco" alt="">
     </div>
-
-    <img src="./img/filter.svg" id="filter" alt="">
+    <div id="filter">
+        <img src="./img/filter.svg" alt="">
+    </div>
+    
 </div>
 
 <div id="slide_in">
@@ -47,7 +49,9 @@
 
     <!-- FILTER MENU -->
     <div id="filter_menu" class="">
-        <form action="">
+        <h1>Filter</h1>
+        <br>
+        <form action="./include/search.php" method="post">
             <div id="search">
                 <input type="text" name="search_input" id="search_input" placeholder="Search...">
                 <button class="btn" type="submit" name="submit">

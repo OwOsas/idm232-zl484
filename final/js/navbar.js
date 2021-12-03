@@ -54,3 +54,38 @@ function burger_cross(){
     }
 }
 
+
+// Listen for click events on body
+document.body.addEventListener('click', function (event) {
+    var filter = document.getElementById("filter_menu");
+    var burger_menu = document.getElementById("burger_menu");
+    var filter_icon = document.getElementById("filter");
+    var slide_in = document.getElementById("slide_in");
+    var navbar = document.getElementById("navbar");
+
+    if (burger_menu.contains(event.target)) {
+        console.log('clicked burger');
+        
+    } 
+    else if(filter.contains(event.target)){
+        console.log('clicked filter');
+    }
+    else if(navbar.contains(event.target)){
+        console.log('clicked filter');
+    }
+    else {
+        console.log('clicked outside');
+        if(burger_menu.classList.contains("burger_visible")){
+            burger_menu.classList.remove("burger_visible");
+            filter_icon.classList.remove("filter_icon_hidden");
+            slide_in.classList.remove("slide_in_active");
+            burger_cross();
+        }
+        else if(filter.classList.contains("filter_visible")){
+            filter.classList.remove("filter_visible");
+            filter_icon.classList.remove("filter_icon_hidden");
+            slide_in.classList.remove("slide_in_active");
+            burger_cross();
+        }
+    }
+});

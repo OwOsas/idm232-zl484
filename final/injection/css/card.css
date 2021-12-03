@@ -3,6 +3,12 @@
     width: 350px;
     /* height: 450px; */
     cursor: pointer;
+    position: relative;
+    transition: .25s;
+}
+
+.card:hover{
+    transform: scale(1.05);
 }
 
 .card *{
@@ -15,7 +21,97 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
 }
+
+.edit{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 2em;
+    width: 2em;
+    padding-left: .1em;
+    background-color: #88773A;
+    transform: translate(100%, -100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .25s;
+}
+
+.edit:hover{
+    width: 2.5em;
+}
+
+.edit img, .delete img{
+    height: 1.5em;
+    width: 1.5em;
+    
+}
+
+.delete_container{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 2em;
+    width: 2em;
+    background-color: #ffffff;
+    transform: translate(100%,0); 
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    transition: .3s;
+}
+
+.delete_cover{
+    height: 2em;
+    width: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #5F2525;
+    z-index: 1;
+}
+
+
+.delete{
+    height: 100%;
+    position: absolute;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    font-size: .8em;
+    color: #5F2525;
+    transition: .3s;
+    background-color: white;
+
+    visibility: hidden;
+    opacity: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 0.3em;
+}
+
+/* .delete_container:hover{
+    width: 6em;
+} */
+
+.delete_container:hover > .delete{
+    transform: translate(0,100%); 
+    visibility: visible;
+    opacity: 100;
+    
+}
+
+.delete:hover{
+    background-color: #624d4d;
+    color: white;
+}
+
 
 .description_container{
     background-color: #FAF6EE;
@@ -38,6 +134,10 @@
     align-items: center;
 }
 
+.title p{
+    height: 2em;
+}
+
 .content_box h1{
     text-align: center;
     font-size: 1.25em;
@@ -57,6 +157,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
 }
@@ -123,4 +224,17 @@
     color: white;
     font-size: 1.75em;
     margin: .5em 0 1em 0;
+}
+
+@media screen and (min-width:720px){
+    .delete{
+        right: auto;
+        left: 0;
+    }
+
+    .delete_container:hover > .delete{
+        transform: translate(2.5em,0); 
+        visibility: visible;
+        opacity: 100;
+    }
 }

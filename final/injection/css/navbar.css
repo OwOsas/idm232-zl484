@@ -39,14 +39,28 @@
 }
 
 #hamburger{
-    height: 2em;
-    width: 2em;
+    height: 2.2em;
+    width: 2.2em;
     display: flex;
     align-items: center;
     justify-content: center;
     justify-self: left;
     cursor: pointer;
+    transition: .25s;
+    border: 2px solid rgba(255, 255, 255, 0);
+    border-radius: 50%;
+    padding: .2em;
 }
+
+#hamburger:hover{
+    border: 2px solid rgba(255, 255, 255, 0.486);
+}
+
+#hamburger:hover > #burger_ele::after{
+    width: 1em;
+    transform: translate(0,.5em) rotate(180deg);
+}
+
 
 #burger_ele{
     content: "";
@@ -80,13 +94,29 @@
     transform: translate(0) rotate(90deg) !important;
 }
 
+#hamburger:hover > .cross::after{
+    width: 1.5em!important;
+    transform: translate(0) rotate(90deg) !important;
+}
+
 
 #filter{
     cursor: pointer;
     justify-self: right;
+    width: 2.5em;
+    height: 2.5em;
     max-width: 100%;  
     padding: .5em;
     transition: .25s;
+    border: 2px solid rgba(255, 255, 255, 0);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#filter:hover{
+    border: 2px solid rgba(255, 255, 255, 0.486);
 }
 
 .filter_icon_hidden{
