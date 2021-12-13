@@ -67,35 +67,3 @@ function card_gen($ID, $title, $imgName, $type, $originOg, $time, $difficulty){
 ?>
 
 <link rel="stylesheet" href="./injection/css/card.css">
-<!-- <div class="card">
-<a href="./detail_recipe.php?id=2" class="card">
-    <div class="thumbnail_img" style="background-image: url(./img/recipe_img/61a124648af500.21021777.jpg);">
-    </div>
-    <div class="description_container">
-        <div class="tag">
-            Basics
-        </div>
-        <div class="content_box">
-            <div class="title">
-                <h1>Kwama Egg Quiche</h1>
-            </div>
-            <p> Originally only known in Vvardenfell, this recipe traveled with. Dunmer...</p>
-            <div class="desc_bot">
-                <div class="time">
-                    <img src="./img/timer_icon.svg" alt="Cooking Time">
-                    <p>1hr 30mins</p>
-                </div>
-                <div class="difficulty">
-                    <p><b>Difficulty:</b>4</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</a>
-<a href="./edit.php?id=2" class="edit">
-    <img src="./img/edit_icon.svg" alt="Edit">
-</a>
-<a href="./delete.php?id=2" class="edit">
-    <img src="../img/delete_icon.svg" alt="Edit">
-</a>
-</div> -->

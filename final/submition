@@ -1,0 +1,23 @@
+Github Repo: https://github.com/OwOsas/idm232-zl484
+Database Export: https://github.com/OwOsas/idm232-zl484
+Case Study: https://sylarli.com/idm232/final/case_study
+
+Home Page: https://sylarli.com/idm232/final/index.php
+Category Listing Page: https://sylarli.com/idm232/final/recipe.php
+Recipe Detail Page: https://sylarli.com/idm232/final/detail_recipe.php?id=9
+Search Results Page: https://sylarli.com/idm232/final/recipe.php (Use the search menu that can be accessed by clicking the filter icon in the navbar)
+
+***
+This website has a log in system, website like "Create", "Edit", and functions "Delete" will be automatically made availible if the user's account is an admin account. 
+The account (email = paul.phan@drexel.edu | password = idm232) has been set to an admin account.
+The account registered will be automatically set to a none admin account.
+***
+
+Admin Recipe Listing: https://sylarli.com/idm232/final/recipe.php
+Admin Recipe Create: https://sylarli.com/idm232/final/create.php
+Admin Recipe Detail: https://sylarli.com/idm232/final/detail_recipe.php?id=9
+Admin Recipe Edit: https://sylarli.com/idm232/final/edit.php?id=9
+Admin Recipe Delete: https://sylarli.com/idm232/final/recipe.php (Delete by hovering on the trash can on the bottom right of each recipe and click "Delete")
+
+Extra Credit
+log in system

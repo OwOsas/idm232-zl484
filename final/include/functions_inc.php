@@ -5,10 +5,8 @@ function inputIsEmpty($userInfo){
         if (empty($userData)){
             return true;
         }
-        else {
-            return false;
-        }
     }
+    return false;
 }
 
 function usernameIsValid($username){
@@ -23,11 +21,12 @@ function usernameIsValid($username){
 function usernameExists($conn, $username){
     $sql = "SELECT * FROM users WHERE u_username ='" . $username . "';";
     $results = mysqli_query($conn,$sql);
-    if($results == 0){
-        return false;
+
+    if($results->num_rows == 1){
+        return true;
     }
     else{
-        return true;
+        return false;
     }
 }
 
@@ -89,6 +88,7 @@ function login($conn, $username){
             $_SESSION["u_lastName"] = $row["u_lastName"];
             $_SESSION["u_isAdmin"] = $row['u_isAdmin'];
             echo "Logged in";
+            return "";
         }
     }
 }
@@ -114,11 +114,11 @@ function recipeNameExists($conn, $recipeName){
     $sql = "SELECT * FROM recipes WHERE  r_title ='" . $recipeName . "';";
     $results = mysqli_query($conn,$sql);
 
-    if($results == 0){
-        return false;
+    if($results->num_rows == 1){
+        return true;
     }
     else{
-        return true;
+        return false;
     }
 }
 
@@ -126,7 +126,7 @@ function createRecipe($conn, $title, $fileName, $difficulty, $region, $type, $pr
     $sql = "INSERT INTO recipes (r_title, r_imgName, r_difficulty, r_region, r_type, r_prepTime, r_cookTime, r_origin, r_ingredients,r_steps) VALUES (?,?,?,?,?,?,?,?,?,?)";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)){
-        // header("location: ../create.php?error=stmtFailed");
+        header("location: ../create.php?error=stmtFailed");
         echo "<br>stmtFailed";
         exit();
     }

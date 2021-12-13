@@ -12,36 +12,33 @@
         require_once 'functions_inc.php';
 
         if (inputIsEmpty($userInfo) == true){
-            header("location: ../index.php?error=emptyInput");
+            header("location: ../index.php?error=SU_emptyInput");
             exit();
         }
 
-        if (usernameIsValid($username) == false){
-            header("location: ../index.php?error=invalidUsername");
+        elseif (usernameIsValid($username) == false){
+            header("location: ../index.php?error=SU_invalidUsername");
             exit();
         }
 
-        if (usernameExists($conn, $username) == true){
-            header("location: ../index.php?error=usernameExist");
+        elseif (usernameExists($conn, $username) == true){
+            header("location: ../index.php?error=SU_usernameExist");
             exit();
         }
 
-        if (emailIsValid($email) == false){
-            header("location: ../index.php?error=invalidEmail");
+        elseif (emailIsValid($email) == false){
+            header("location: ../index.php?error=SU_invalidEmail");
             exit();
         }
 
-        if (pwdIsMatch($pwd, $re_pwd) == false){
-            header("location: ../index.php?error=passwordDoNotMatch");
+        elseif (pwdIsMatch($pwd, $re_pwd) == false){
+            header("location: ../index.php?error=SU_passwordDoNotMatch");
             exit();
         }
 
-        // if (pwdIsValid($pwd) == false){
-        //     header("location: ../index.php?error=invalidPassword");
-        //     exit();
-        // }
-
-        createUser($conn, $fst_name,$lst_name, $username, $email, $pwd);
+        else{
+            createUser($conn, $fst_name,$lst_name, $username, $email, $pwd);
+        }
     }
     else{
         header("location: ../index.php");

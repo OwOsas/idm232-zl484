@@ -117,10 +117,12 @@
     background-color: #FAF6EE;
     padding: .75em;
     position: relative;
+    height: 10em;
 }
 
 .content_box{
     border: 1px #88773A solid;
+    height: 100%;
     padding: .5em 1em;
     display: flex;
     flex-direction: column;

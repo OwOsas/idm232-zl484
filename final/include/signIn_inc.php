@@ -8,12 +8,14 @@
         require_once 'functions_inc.php';
 
         if(inputIsEmpty($userInfo)){
-            header("location: ../index.php?error=emptyInput");
+            echo "empt";
+            header("location: ../index.php?error=SI_emptyInput");
             exit();
         }
 
         elseif(!usernameExists($conn, $username)){
-            header("location: ../index.php?error=usernameDoesNotExists");
+            echo "uEx";
+            header("location: ../index.php?error=SI_usernameDoesNotExists");
             exit();
         }
 
@@ -23,11 +25,13 @@
             exit();
         }
         else{
-            header("location: ../index.php?error=wrongPwd");
+            echo "pwd";
+            header("location: ../index.php?error=SI_wrongPwd");
             exit();
         }
     }
     else{
+        echo "exit";
         header("location: ../index.php");
         exit();
     }

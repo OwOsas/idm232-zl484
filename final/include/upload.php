@@ -1,4 +1,3 @@
-<div>Upload</div>
 <?php
     include_once '../include/dbh_inc.php';
     include_once '../include/functions_inc.php';

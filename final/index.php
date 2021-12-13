@@ -1,5 +1,6 @@
 <?php
     include_once "./injection/html_inj.php";
+    include_once "./include/error_check.php";
 
     session_start();
     if (isset($_SESSION['u_username'])) {
@@ -8,11 +9,13 @@
 
     $page_title = "Welcome";
     if(!empty($_GET["error"])){
-        $errormsg = $_GET["error"];
+        $errormsg = error_msg();;
     }
     else{
         $errormsg = "";
     }
+
+    $username = "";
     
 ?>
 <!DOCTYPE html>
@@ -29,6 +32,7 @@
     <link rel="stylesheet" href="./css/bg.css">
 </head>
 <body>
+    <span id="error_checker" class="<?php echo error_check(); ?>"></span>
     <div id="bg"></div>
     <div class="welcome_container">
         <img id="return" src="./img/bk_btn.svg" class="hidden" alt="">
@@ -52,7 +56,7 @@
                 <div class="entry_container">
                     <div class="entry">
                         <img class="logIn_img" src="./img/user_icon_login.svg" alt="">
-                        <input type="text" name="username" placeholder="Username...">
+                        <input type="text" name="username" placeholder="Username..." value="<?php echo $username; ?>">
                     </div>
                     <div class="entry">
                         <img class="logIn_img" src="./img/pwd_icon.svg" alt="">

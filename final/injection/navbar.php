@@ -16,11 +16,11 @@
 
 <div id="slide_in">
     <div id="burger_menu">
-        <a href="">
+        <!-- <a href="">
             <img src="./img/saved_recipe.svg" alt="">
             <span>Saved Recipe</span>
             <img src="./img/slider_arrow.svg" alt="" style="transform:rotate(180deg); height:1em; width:1em; margin:0;">
-        </a>
+        </a> -->
         
         <div id="account_container">
             <div>
@@ -40,7 +40,7 @@
                         ?>
                     </p>
                 </div>
-                <a href="">Account Setting</a>
+                <!-- <a href="">Account Setting</a> -->
             </div>
         </div>
         <a id="log_out" class="btn" href="./include/logout.php">Log Out</a>

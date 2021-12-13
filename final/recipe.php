@@ -6,7 +6,9 @@
         header("location: ./index.php");
     }    
 
+    
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,14 +26,9 @@
 <body>
     <?php
     include_once './injection/navbar.php';
-    include_once './include/dbh_inc.php'
+    include_once './include/dbh_inc.php';
     
-    // echo var_dump($_SESSION);
-    ?>
-
-    <div id="card_container">
-        <?php
-        include_once './injection/card.php';
+    include_once './injection/card.php';
         $title = "Test Title";
         $bg_img = "";
         $sql = "SELECT * FROM recipes";
@@ -40,7 +37,7 @@
                 $sql .= " WHERE";
             }
             $hasTerm = false;
-
+            echo "<div>";
             if(isset($_GET["search"]) && !($_GET["search"] == "All")){
                 $keyword = $_GET["search"];
                 $sql .= " r_title LIKE '%" . $keyword . "%'";
@@ -53,14 +50,18 @@
                 $sql .= " OR r_ingredients LIKE '%" . $keyword . "%'";
                 $sql .= " OR r_steps LIKE '%" . $keyword . "%'";
                 $hasTerm = true;
+
+                echo "<span class='search_term'>" . $keyword . "</span>";
             }
         
             if(isset($_GET["region"]) && !($_GET["region"] == "All")){
+                $region = $_GET["region"];
                 if($hasTerm){
                     $sql .= "AND";
                 }
                 $sql .= " r_region='" . $_GET["region"] . "'";
                 $hasTerm = true;
+                echo "<span class='search_term'>" . $region . "</span>";
             }
 
         
@@ -70,12 +71,17 @@
                 }
                 $sql .= " r_type='" . $_GET["type"] . "'";
                 $hasTerm = true;
+                $type = $_GET["type"];
+                echo "<span class='search_term'>" . $_GET["type"] . "</span>";
             }
         }
         $sql .= ";";
+        echo "</div>";
+    
+    ?>
 
-        // echo $sql;
-
+    <div id="card_container">
+        <?php
         $result = mysqli_query($conn,$sql);
 
         if($result != false){
@@ -87,8 +93,6 @@
                 }
             }
         }
-
-        
 
         if($_SESSION["u_isAdmin"]){
             include_once './injection/create_button.php';
